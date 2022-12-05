@@ -19,3 +19,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 
 }
+
+
+
+if(is_admin()){
+	
+
+// include plugin dependencies
+require_once plugin_dir_path( __FILE__ ) . 'admin/admin-menu.php';
+require_once plugin_dir_path( __FILE__ ) . 'admin/settings-page.php';
+
+}
