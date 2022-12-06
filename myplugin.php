@@ -22,6 +22,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 
+// load text domain
+function myplugin_load_textdomain() {
+	
+	load_plugin_textdomain( 'myplugin', false, plugin_dir_path( __FILE__ ) . 'lang/' );
+	
+}
+add_action( 'plugins_loaded', 'myplugin_load_textdomain' );
+
+
+
+
 if(is_admin()){
 	
 
@@ -45,7 +56,7 @@ function myplugin_options_default() {
 
 	return array(
 		'custom_url'     => 'https://wordpress.org/',
-		'custom_title'   => 'Powered by WordPress',
+		'custom_title'   => esc_html__('Powered by WordPress', 'myplugin'),  // translate text 
 		'custom_style'   => 'disable',
 		'custom_message' => '<p class="custom-message">My custom message</p>',
 		'custom_footer'  => 'Special message for users',
@@ -55,6 +66,18 @@ function myplugin_options_default() {
 
 }
  
+
+
+ 
+// remove options on uninstall
+function myplugin_on_uninstall() {
+
+	if ( ! current_user_can( 'activate_plugins' ) ) return;
+
+	delete_option( 'myplugin_options' );
+
+}
+register_uninstall_hook( __FILE__, 'myplugin_on_uninstall' );
 
 
 
