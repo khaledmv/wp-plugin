@@ -9,16 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 
-// validate plugin settings
-function myplugin_validate_options($input) {
-	
-	// todo: add validation functionality..
-	
-	return $input;
-	
-}
-
-
 // callback: login section
 function myplugin_callback_section_login() {
 	

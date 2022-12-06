@@ -30,8 +30,15 @@ require_once plugin_dir_path( __FILE__ ) . 'admin/admin-menu.php';
 require_once plugin_dir_path( __FILE__ ) . 'admin/settings-page.php';
 require_once plugin_dir_path( __FILE__ ) . 'admin/settings-register.php';
 require_once plugin_dir_path( __FILE__ ) . 'admin/settings-callbacks.php';
+require_once plugin_dir_path( __FILE__ ) . 'admin/settings-validate.php';
 
 }
+
+// Include dependency: admin and public
+
+require_once plugin_dir_path( __FILE__ ) . 'inc/core-functions.php';
+
+
 
 // default plugin options
 function myplugin_options_default() {
